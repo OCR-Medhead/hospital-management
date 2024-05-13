@@ -1,0 +1,43 @@
+<div class="container-fluid">
+    <div class="row d-flex flex-col align-items-center">
+        <div class="row bg-primary text-center">
+            <div class="jumbotron jumbotron-fluid">
+                <div class="container">
+                    <h1 class="text-start p-2 text-white">Hospital management</h1>
+                </div>
+            </div>
+        </div>
+        <div class="my-10"></div>
+        <div class="row justify-content-center col-xl-4 col-md-12 my-2">
+            <h1 class="display-6">
+                Connexion
+            </h1>
+        </div>
+        <div class="row border-xl-top d-flex border-danger col-xl-4 col-md-12">
+            <form>
+                <div class="form-group ">
+                    <label for="email">Adresse e-mail</label> <!--  ({{email.value}}) -->
+                    <input type="email" class="form-control" id="email" aria-describedby="emailHelp"
+                        placeholder="Adresse e-mail" [formControl]="email">
+                </div>
+                <div class="form-group">
+                    <label for="password">Mot de passe</label> <!-- ({{password.value}})-->
+                    <input type="password" class="form-control" id="password" placeholder="Mot de passe" [formControl]="password">
+                </div>
+                <div class="d-flex justify-content-end">
+                    <button class="btn btn-primary my-4" (click)="login()" [disabled]=loading>
+                        @if (!loading) {
+                        <p>
+                            Se connecter
+                        </p>
+                        }@else{
+                        <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                        Connexion...
+                        }
+                    </button>
+                </div>
+            </form>
+        </div>
+        <!-- <div class="row"></div> -->
+    </div>
+</div>
