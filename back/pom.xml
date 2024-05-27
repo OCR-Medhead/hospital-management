@@ -72,7 +72,8 @@
         <resource>
             <directory>src/main/resources</directory>
             <includes>                      
-                <include>**/*.properties</include>                  
+                <include>**/*.properties</include>  
+                <include>**/data.sql</include>                
             </includes>
         </resource>            
     </resources>

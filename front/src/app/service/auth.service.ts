@@ -14,7 +14,7 @@ export class AuthService {
 
   async login(email: string, password: string): Promise<boolean>{
 
-    let lol = await firstValueFrom(this.client.post(API_HOST_URI + "user/login", { 
+    let isAuthValid = await firstValueFrom(this.client.post(API_HOST_URI + "user/login", { 
       email,
       password
     }, {
@@ -24,18 +24,12 @@ export class AuthService {
       responseType: 'text'
     })
     ).then(rep => {
-      console.log("Connexion OK")
-      console.log(rep)
       this.saveTokenInStorage(rep)
       return true
     })
-    .catch(err => {
-      console.log("Connexion imposssible")
-      console.log(err)
-      return false
-    })
- 
-    return lol
+    .catch(_ => false)
+    
+    return isAuthValid
 
   }
 

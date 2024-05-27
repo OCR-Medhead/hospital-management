@@ -48,7 +48,7 @@ class HospitalServiceTests {
 	
 	@Test
 	public void checkHospitalsByName() {
-		Iterable<HospitalDto> hospitals = hs.getHospitalsByName("Crusher");
+		Iterable<HospitalDto> hospitals = hs.getHospitalsByName("Paris");
 		
 		int counter =0;
 		for(HospitalDto h: hospitals) {
