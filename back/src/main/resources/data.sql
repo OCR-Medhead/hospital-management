@@ -2,7 +2,8 @@ CREATE TABLE IF NOT EXISTS hospital(
     id INT AUTO_INCREMENT PRIMARY KEY,
     name varchar(200) NOT NULL,
     latitude float,
-    longitude float
+    longitude float,
+    beds INT
 );
 
 CREATE TABLE IF NOT EXISTS specialization(
@@ -25,15 +26,15 @@ CREATE TABLE IF NOT EXISTS customUser(
     last_name varchar(200) NOT NULL
 );
 
-INSERT INTO hospital(name, latitude, longitude) VALUES
-('Paris', 48.85, 1.44),
-('Toulouse', 43.6, 1.44),
-('Lyon', 45.75, 7.83),
-('Marseille', 43.29, 5.37),
-('Lille', 50.63, 3.06),
-('Strasbourg', 48.58, 7.75),
-('Biarritz', 43.48, -1.55),
-('Brest', 48.39, -4.48);
+INSERT INTO hospital(name, latitude, longitude, beds) VALUES
+('Paris', 48.85, 1.44, 17),
+('Toulouse', 43.6, 1.44, 1),
+('Lyon', 45.75, 7.83, 8),
+('Marseille', 43.29, 5.37, 0),
+('Lille', 50.63, 3.06, 0),
+('Strasbourg', 48.58, 7.75, 12),
+('Biarritz', 43.48, -1.55, 4),
+('Brest', 48.39, -4.48, 5);
 
 INSERT INTO specialization (name) VALUES
 ('Cardiologie'),

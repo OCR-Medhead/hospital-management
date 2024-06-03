@@ -22,12 +22,6 @@ public class UserService {
 			return userRepository.findUserByEmail(email);
 	}	
 	
-//	public CustomUser login(String email) {
-//		
-//		CustomUser user = this.findUserByEmail(email);
-//	return user;
-//	}
-	
 	public String checkToken(String token) {
 		return token;
 	}

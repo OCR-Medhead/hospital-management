@@ -21,14 +21,13 @@ public class JwtTokenFilter extends OncePerRequestFilter {
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
-       System.out.println("check token");
+    //    System.out.println("Check token");
     	String token = jwtTokenProvider.resolveToken(request);
         if (token != null && jwtTokenProvider.validateToken(token)) {
             Authentication authentication = null;
 			try {
 				authentication = jwtTokenProvider.getAuthentication(token);
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
             if (authentication != null) {

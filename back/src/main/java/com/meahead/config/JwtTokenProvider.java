@@ -42,7 +42,7 @@ public class JwtTokenProvider {
 
 	// Générer un token JWT à partir d'une authentification
 	public String generateToken(Authentication authentication) {
-		System.out.println("key de signature " + key);
+		System.out.println("Key de signature " + key);
 		UserPrincipal userPrincipal = (UserPrincipal) authentication.getPrincipal();
 		// claims
 		Map<String, Object> claims = new HashMap<>();
@@ -97,13 +97,11 @@ public class JwtTokenProvider {
 		// Extraire l'identifiant de l'utilisateur à partir du token JWT
 		Long userId = getUserIdFromJWT(token);
 
-		// Charger les détails de l'utilisateur à partir de la base de données ou d'une
-		// autre source
+		// Charger les détails de l'utilisateur à partir de la base de données ou d'une autre source
 		Optional<CustomUser> userDetails = userService.findById(userId);
 		CustomUser user = userDetails.orElseThrow(() -> new Exception("Utilisateur introuvable"));
 
-		// Créer une instance d'Authentication à partir des détails de l'utilisateur
-		// chargés
+		// Créer une instance d'Authentication à partir des détails de l'utilisateur chargés
 		return new UsernamePasswordAuthenticationToken(user, "", null);
 	}
 

@@ -15,7 +15,5 @@ public class UserPrincipal implements Principal {
 	@Override
 	public String getName() {
 		return this.getUsername();
-		// TODO Auto-generated method stub
-//		return null;
 	}
 }

@@ -24,9 +24,7 @@ public class AuthenticationService {
 	private static final long EXPIRATION_TIME = 864_000_000; // 10 jours
 	
 	public static String generateToken(String userName) {
-		System.out.println("username: " + userName);
-		
-		
+	
 		// claims
 		Map<String, Object> claims = new HashMap<>();
 		
@@ -43,21 +41,6 @@ public class AuthenticationService {
 				.subject("subject yo")
 				.expiration(new Date(System.currentTimeMillis() + EXPIRATION_TIME))
 				.signWith(SignatureAlgorithm.HS256, secretBase64)
-				.compact();
-
-				
-	}
-	
-	public static String extractUserName(String token) {
-		JwtParser test = Jwts.parser()
-				.setSigningKey(SECRET)
-				.build();
-		
-		return "lol";
-//				.
-////				.parseClaimsJws(token)
-//				.getBody()
-//				.getSubject();
-	}
-	
+				.compact();				
+	}	
 }

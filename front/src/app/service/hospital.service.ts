@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Hospital } from '../interface/hospital';
 import { Specialization } from '../interface/specialization';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpResponse, HttpResponseBase, HttpStatusCode } from '@angular/common/http';
 import { AuthService } from './auth.service';
 import { Observable } from 'rxjs';
-import { HospitalSpecialization } from '../interface/hospitalSpecialization';
 
 const API_HOST_URI = "http://localhost:8888/"
 
@@ -23,7 +22,6 @@ export class HospitalService {
         "Authorization": `Bearer ${this.authService.loadTokenInStorage()}`
       })
     })
-
   }
 
   getHospitalsAround(hospital: string): Observable<Hospital[]> {
@@ -42,12 +40,12 @@ export class HospitalService {
     })
   }
 
-  getHospitalByName(hospitalName: string) : Observable<HospitalSpecialization>{
-    return this.client.get<HospitalSpecialization>(API_HOST_URI + "hospital/" + hospitalName, {
+  reserverPlace(hospitalId: Number): Observable<HttpResponse<any>> {
+    return this.client.get<HttpResponse<any>>(API_HOST_URI + "hospitals/reserver/" + hospitalId, {
       headers: new HttpHeaders({
-        "Authorization": `Bearer ${this.authService.loadTokenInStorage()}`
-      })
+        "Authorization": `Bearer ${this.authService.loadTokenInStorage()}`,
+      }),
+      observe:"response"
     })
   }
-
 }

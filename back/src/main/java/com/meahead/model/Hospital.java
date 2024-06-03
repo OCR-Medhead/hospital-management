@@ -20,7 +20,7 @@ import lombok.Data;
 @Data
 @Entity
 @Table(name="hospital")
-@JsonPropertyOrder(value = {"id", "name", "latitude", "longitude", "specializations"})
+@JsonPropertyOrder(value = {"id", "name", "latitude", "longitude", "specializations", "beds"})
 public class Hospital {
 
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -33,6 +33,8 @@ public class Hospital {
 	private Float Latitude;
 	@Column(name="longitude")
 	private Float Longitude;
+	@Column(name="beds")
+	private Integer Beds;
 	
 	@JoinTable(name="hospital_specialization", 
 				joinColumns = @JoinColumn(name="hospital_id"),

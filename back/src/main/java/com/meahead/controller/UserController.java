@@ -24,11 +24,6 @@ public class UserController {
 
 	@Autowired
 	private JwtTokenProvider jwtTokenProvider;
-	
-//	@GetMapping("/user/{email}")
-//	public CustomUser getUserByEmail(@PathVariable("email") final String email) {
-//		return us.findUserByEmail(email);
-//	}
 		
 	@PostMapping("/user/login")
 	public ResponseEntity<String> login(@RequestBody LoginRequest loginRequest) {
@@ -46,18 +41,7 @@ public class UserController {
 		user.setUsername(customUser.getEmail());
 		user.setId(customUser.getId());
 		return ResponseEntity.status(HttpStatus.OK).body(jwtTokenProvider.generateToken(new UsernamePasswordAuthenticationToken(user, "", null)));
-//		String token = AuthenticationService.generateToken(loginRequest.getUsername());
-//		return token;
 	}
 	
-//	@GetMapping("/user/secret")
-//	public String protectedRessource() {
-//		return "Protected resource";
-//	}
-//	
-//	@PostMapping("/user/test")
-//	public String test(@RequestBody LoginRequest name) {
-//		return "Hello " + name.getEmail() + name.getPassword() ;
-//	}
 	
 }

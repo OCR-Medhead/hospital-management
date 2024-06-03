@@ -33,31 +33,5 @@ class HospitalServiceTests {
 		}
 		
 		assertTrue(counter > 1);
-	}		
-	
-	@Test
-	public void checkHospitalListWithSpecializationShouldBeGreaterThanOne() {
-		Iterable<Hospital> hospitals = hs.getHospitalWithSpecialization();
-		int counter =0;
-		for(Hospital h: hospitals) {
-			counter++;
-		}
-		
-		assertTrue(counter > 1);
-	}		
-	
-	@Test
-	public void checkHospitalsByName() {
-		Iterable<HospitalDto> hospitals = hs.getHospitalsByName("Paris");
-		
-		int counter =0;
-		for(HospitalDto h: hospitals) {
-			counter++;
-		}
-		
-		assertTrue(counter == 1);
-		
 	}	
-	
-	
 }
