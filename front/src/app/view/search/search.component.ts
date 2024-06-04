@@ -92,8 +92,6 @@ export class SearchComponent implements OnInit {
 
   searchHospital() {
     if (this.hospitals.length > 0) {
-      console.log("liste hopitaux trouvé compatible")
-      console.log(this.hospitals)
       this.hospitalFound = this.hospitals[0].name
       this.hospitalFoundMessage = `Une place est disponible dans l'hopital de ${this.hospitalFound}`
     } else {
@@ -104,7 +102,6 @@ export class SearchComponent implements OnInit {
 
   reserverPlace() {
     let hospital = this.hospitals.find(x => x.name === this.hospitalFound)
-    console.log("hospitalfound" + this.hospitalFound)
     if (hospital) {
       this.hospitalService.reserverPlace(hospital.id)
         .subscribe(

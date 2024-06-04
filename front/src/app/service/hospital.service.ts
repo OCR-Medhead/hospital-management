@@ -5,7 +5,7 @@ import { HttpClient, HttpHeaders, HttpResponse, HttpResponseBase, HttpStatusCode
 import { AuthService } from './auth.service';
 import { Observable } from 'rxjs';
 
-const API_HOST_URI = "http://localhost:8888/"
+const API_HOST_URI = "http://localhost:8080/"
 
 @Injectable({
   providedIn: 'root'
