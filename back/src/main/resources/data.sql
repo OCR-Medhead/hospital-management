@@ -59,6 +59,6 @@ INSERT INTO hospital_specialization(hospital_id, specialization_id) VALUES
 (8,1);
 
 INSERT INTO customUser (id, email, passwordhash, first_name, last_name) VALUES
-(32, 'dev@dev.fr', '123', 'dev', 'dev'),
-(33, 'admin@admin.fr', '123', 'admin', 'admin'),
-(34, 'user@user.fr', '123', 'user', 'user');
+(32, 'dev@dev.fr', 'sLNdHqYXd5DQgXGSmH7G', 'dev', 'dev'),
+(33, 'admin@admin.fr', 'sLNdHqYXd5DQgXGSmH7G', 'admin', 'admin'),
+(34, 'user@user.fr', 'sLNdHqYXd5DQgXGSmH7G', 'user', 'user');

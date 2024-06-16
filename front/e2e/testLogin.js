@@ -7,7 +7,7 @@ const assert = require("assert");
 
     try {
         await driver.manage().setTimeouts({ implicit: 1000})
-        await driver.get("http://localhost:4200")
+        await driver.get("http://localhost:80")
         let pageTitle = await driver.getTitle()
         
         assert.strictEqual(pageTitle, "HospitalManagement")
